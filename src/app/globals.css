@@ -51,6 +51,35 @@
   --section-header-bg:  linear-gradient(135deg, #F5E9D8 0%, #EDD8BA 50%, #D4A868 100%);
 }
 
+/* ── Artist loader animations ── */
+@keyframes artist-draw {
+  0%   { stroke-dashoffset: var(--path-length, 400); opacity: 0; }
+  6%   { opacity: 1; }
+  72%  { stroke-dashoffset: 0; opacity: 1; }
+  88%  { stroke-dashoffset: 0; opacity: 0.3; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes brush-move {
+  0%   { transform: translate(18px, -12px) rotate(-30deg); opacity: 0; }
+  8%   { opacity: 1; }
+  72%  { transform: translate(-8px, 6px) rotate(-22deg); opacity: 1; }
+  88%  { opacity: 0.4; }
+  100% { transform: translate(-8px, 6px) rotate(-22deg); opacity: 0; }
+}
+
+@keyframes brush-pulse {
+  0%, 100% { transform: scale(0); opacity: 0; }
+  10%       { transform: scale(1.4); opacity: 1; }
+  60%       { transform: scale(1); opacity: 1; }
+  85%       { transform: scale(0.6); opacity: 0.4; }
+}
+
+@keyframes dot-rise {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.3; }
+  40%           { transform: translateY(-4px); opacity: 1; }
+}
+
 /* ── Semantic utility classes ── */
 body {
   background-color: var(--bg-base);
