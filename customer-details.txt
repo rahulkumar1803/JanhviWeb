@@ -1,0 +1,106 @@
+================================================================
+                    ARTIST / CUSTOMER DETAILS FORM
+        Please fill in all fields and return this file.
+================================================================
+
+----------------------------------------------------------------
+  PERSONAL INFORMATION
+----------------------------------------------------------------
+
+Name            : Janhvi Kumari
+Title / Role    : Visual Artist
+Tagline         : 
+Date of Birth   : 22/07/2002
+Nationality     : Indian
+Location        : Koderma , Jharkhand 
+Languages       : Hindi , English 
+
+Bio (short paragraph about yourself): Arts is the main aspect of my life , wish to handover my whole life in this field being a true 
+devotee. My aim is to make all the viewers feel and enjoy the nature of the real expression of my art with inspiring energy through my natural 
+and best level of output in my work with appropirate application.
+
+
+----------------------------------------------------------------
+  CONTACT INFORMATION
+----------------------------------------------------------------
+
+Email           : janhvisinu.2207@gmail.com
+Phone           : 8298874054
+Website         : 
+Instagram       : https://www.instagram.com/artistryjanhvi
+LinkedIn        : https://www.linkedin.com/in/janhvi-kumari-a22759305
+
+----------------------------------------------------------------
+  SKILLS  (add/remove rows as needed — level out of 100)
+  like oil , watercolor etc 
+----------------------------------------------------------------
+
+Skill 1  : Sculpture                 Level : 95/100
+Skill 2  : Painting                  Level : 95/100
+Skill 3  : Sletching                 Level : 95/100
+Skill 4  : Autodest MAYA 3d Mideling Level : 95/100
+Skill 5  : HandCrafting              Level : 95/100
+
+  NOTE: Recent Works are pulled automatically from the Products
+  section — no need to fill them in here.
+
+----------------------------------------------------------------
+  EDUCATION / QUALIFICATIONS  (add/remove rows as needed)
+----------------------------------------------------------------
+
+Qualification 1
+  Degree / Certificate : Bachlor of fine arts
+  Institution          : Lovely Professional university , Punjab
+  Year                 : 2021 - 2026
+  Description          : 
+
+Qualification 2
+  Degree / Certificate : Higher education 
+  Institution          : RLSY college , koderma 
+  Year                 : 2016-2018
+  Description          : 
+
+Qualification 3
+  Degree / Certificate : secondary education
+  Institution          : Munam public school , Hazaribag
+  Year                 : 
+  Description          : 
+
+----------------------------------------------------------------
+  Workshops  (add/remove rows as needed)
+----------------------------------------------------------------
+
+Workshops 1
+  Title        : National traditional bronze camp
+  Organisation : karnataka shilpkala academy , bengaluru
+  year : LPU 2025
+
+Workshops 2
+  Title        : National traditional wood camp
+  Organisation : karnataka shilpkala academy , bengaluru
+  year : LPU 2025 
+
+Workshops 3
+  Title        : Dhokhra casting workshop
+  Organisation : shhatrapati sahuji university , kanpur
+  Year         : 2025
+
+Workshops 4
+  Title        : international art camp 
+  Organisation : russian artist , lpu
+  Year         : 2024
+
+Workshops 5
+  Title        : Woodcut
+  Organisation : LPU
+  Year         : 2023
+
+Workshops 5
+  Title        : charcoal drawing workshop
+  Organisation : LPU
+  Year         : 2023
+
+================================================================
+  Thank you for filling in this form.
+  Please return the completed file to us.
+================================================================

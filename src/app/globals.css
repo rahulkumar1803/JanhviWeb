@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ── Dark mode (default / brown palette) ── */
+:root,
+[data-theme="dark"] {
+  --bg-base:       #1A0C04;
+  --bg-card:       #2A1508;
+  --bg-nav:        #3B1F0E;
+  --border:        #4A2510;
+  --border-hover:  #C8813A;
+  --accent:        #C8813A;
+  --accent-hover:  #D4925A;
+  --accent-light:  #E8B07A;
+  --text-primary:  #FFFFFF;
+  --text-base:     #E8CCAA;
+  --text-muted:    #A0785A;
+  --text-faint:    #7A5038;
+  --text-xfaint:   #5C3A20;
+  --badge-bg:           #3B1F0E;
+  --track-bg:           #4A2510;
+  --hero-overlay-from:  rgba(26, 12, 4, 0.95);
+  --hero-overlay-mid:   rgba(26, 12, 4, 0.70);
+  --hero-overlay-top:   rgba(26, 12, 4, 0.30);
+  --cta-overlay:        rgba(26, 12, 4, 0.85);
+  --badge-panel-bg:     rgba(42, 21, 8, 0.90);
+  --section-header-bg:  linear-gradient(135deg, #2A1508 0%, #3B1F0E 50%, #5C2E10 100%);
+}
+
+/* ── Light mode ── */
+[data-theme="light"] {
+  --bg-base:       #F5E9D8;
+  --bg-card:       #FBF3E8;
+  --bg-nav:        #F0E0C8;
+  --border:        #E8D5C0;
+  --border-hover:  #C8813A;
+  --accent:        #B87030;
+  --accent-hover:  #C8813A;
+  --accent-light:  #D4925A;
+  --text-primary:  #1A0C04;
+  --text-base:     #3B1F0E;
+  --text-muted:    #7A5038;
+  --text-faint:    #A0785A;
+  --text-xfaint:   #C8A882;
+  --badge-bg:           #F5E9D8;
+  --track-bg:           #E8D5C0;
+  --hero-overlay-from:  rgba(253, 246, 238, 0.88);
+  --hero-overlay-mid:   rgba(253, 246, 238, 0.55);
+  --hero-overlay-top:   rgba(253, 246, 238, 0.10);
+  --cta-overlay:        rgba(26, 12, 4, 0.82);
+  --badge-panel-bg:     rgba(251, 243, 232, 0.92);
+  --section-header-bg:  linear-gradient(135deg, #F5E9D8 0%, #EDD8BA 50%, #D4A868 100%);
+}
+
+/* ── Semantic utility classes ── */
+body {
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Clerk Component Theme Overrides ── */
+/* These use CSS variables so they sync automatically with dark/light mode */
+
+/* Card / modal shell */
+.cl-card,
+.cl-signIn-root .cl-card,
+.cl-signUp-root .cl-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45) !important;
+  color: var(--text-base) !important;
+}
+
+/* Header */
+.cl-headerTitle {
+  color: var(--text-primary) !important;
+}
+.cl-headerSubtitle {
+  color: var(--text-muted) !important;
+}
+
+/* Form labels & hints */
+.cl-formFieldLabel {
+  color: var(--text-base) !important;
+}
+.cl-formFieldHintText,
+.cl-formFieldInfoText {
+  color: var(--text-muted) !important;
+}
+.cl-formFieldErrorText {
+  color: #e07070 !important;
+}
+
+/* Inputs */
+.cl-formFieldInput,
+.cl-phoneInputBox,
+.cl-selectButton {
+  background-color: var(--bg-base) !important;
+  border-color: var(--border) !important;
+  color: var(--text-base) !important;
+}
+.cl-formFieldInput:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 25%, transparent) !important;
+  outline: none !important;
+}
+
+/* Primary action button */
+.cl-formButtonPrimary {
+  background-color: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+.cl-formButtonPrimary:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Secondary / ghost button */
+.cl-formButtonReset,
+.cl-formResendCodeLink {
+  color: var(--accent) !important;
+}
+.cl-formButtonReset:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Social provider buttons */
+.cl-socialButtonsBlockButton {
+  background-color: var(--bg-base) !important;
+  border-color: var(--border) !important;
+  color: var(--text-base) !important;
+}
+.cl-socialButtonsBlockButton:hover {
+  border-color: var(--accent) !important;
+  background-color: var(--bg-card) !important;
+}
+.cl-socialButtonsBlockButtonText {
+  color: var(--text-base) !important;
+}
+
+/* Divider */
+.cl-dividerLine {
+  background-color: var(--border) !important;
+}
+.cl-dividerText {
+  color: var(--text-muted) !important;
+  background-color: var(--bg-card) !important;
+}
+
+/* Footer ("Don't have an account? Sign up") */
+.cl-footer,
+.cl-footerAction {
+  background-color: var(--bg-card) !important;
+  border-top-color: var(--border) !important;
+}
+.cl-footerActionText {
+  color: var(--text-muted) !important;
+}
+.cl-footerActionLink {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+.cl-footerActionLink:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Identity preview (email shown after entering) */
+.cl-identityPreviewText {
+  color: var(--text-base) !important;
+}
+.cl-identityPreviewEditButton {
+  color: var(--accent) !important;
+}
+
+/* UserButton popover */
+.cl-userButtonPopoverCard {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4) !important;
+}
+.cl-userButtonPopoverActions {
+  background-color: var(--bg-card) !important;
+}
+.cl-userButtonPopoverActionButton {
+  color: var(--text-base) !important;
+}
+.cl-userButtonPopoverActionButton:hover {
+  background-color: var(--bg-nav) !important;
+}
+.cl-userButtonPopoverActionButtonText {
+  color: var(--text-base) !important;
+}
+.cl-userButtonPopoverActionButtonIcon {
+  color: var(--text-muted) !important;
+}
+.cl-userButtonPopoverFooter {
+  background-color: var(--bg-card) !important;
+  border-top-color: var(--border) !important;
+}
+.cl-userPreviewMainIdentifier {
+  color: var(--text-primary) !important;
+}
+.cl-userPreviewSecondaryIdentifier {
+  color: var(--text-muted) !important;
+}
+
+/* Modal backdrop */
+.cl-modalBackdrop {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* OTP / verification code inputs */
+.cl-otpCodeFieldInput {
+  background-color: var(--bg-base) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+.cl-otpCodeFieldInput:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
