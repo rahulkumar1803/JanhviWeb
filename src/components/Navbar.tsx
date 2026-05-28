@@ -102,6 +102,17 @@ function UserMenu() {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
     <>
@@ -157,70 +168,76 @@ export default function Navbar() {
             </Show>
           </ul>
 
-          {/* Hamburger — mobile */}
-          <div className="md:hidden flex items-center gap-3">
-            <button
-              className="flex flex-col justify-center items-center gap-1.5 w-9 h-9 rounded-lg transition-colors"
-              style={{ color: 'var(--text-base)' }}
-              onClick={() => setMenuOpen((prev) => !prev)}
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-            >
-              <span
-                className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
-                  menuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
-                  menuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
-                  menuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              />
-            </button>
-          </div>
-        </div>
+          {/* Mobile: theme toggle + hamburger dropdown */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <div ref={mobileMenuRef} className="relative">
+              <button
+                className="flex flex-col justify-center items-center gap-1.5 w-9 h-9 rounded-lg transition-colors"
+                style={{ color: 'var(--text-base)' }}
+                onClick={() => setMenuOpen((prev) => !prev)}
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+              >
+                <span
+                  className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
+                    menuOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
+                />
+                <span
+                  className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
+                    menuOpen ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`block w-5 h-0.5 bg-[#E8CCAA] rounded transition-all duration-300 ${
+                    menuOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
+                />
+              </button>
 
-        {/* Mobile nav dropdown */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            menuOpen ? "max-h-80 pb-4" : "max-h-0"
-          }`}
-        >
-          <ul className="flex flex-col gap-1 pt-2">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block font-medium px-4 py-2.5 rounded-lg transition-colors"
-                  style={{ color: pathname === link.href ? '#C8813A' : 'var(--text-base)' }}
+              {/* Floating dropdown */}
+              {menuOpen && (
+                <div
+                  className="absolute right-0 top-11 w-52 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                  style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
                 >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+                  {/* Nav links */}
+                  <div className="p-2">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors hover:bg-[#C8813A]/15"
+                        style={{ color: pathname === link.href ? '#C8813A' : 'var(--text-base)' }}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
 
-            {/* Mobile auth row */}
-            <Show when="signed-out">
-              <li className="mt-1" style={{ borderTop: '1px solid var(--border)' }}>
-                <SignInButton mode="modal">
-                  <button className="w-full text-left px-4 py-2.5 text-sm font-bold text-[#C8813A] cursor-pointer">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </li>
-            </Show>
-            <Show when="signed-in">
-              <li className="mt-1 px-4 py-2.5" style={{ borderTop: '1px solid var(--border)' }}>
-                <UserMenu />
-              </li>
-            </Show>
-          </ul>
+                  {/* Auth section */}
+                  <div className="px-2 pb-2" style={{ borderTop: "1px solid var(--border)" }}>
+                    <Show when="signed-out">
+                      <SignInButton mode="modal">
+                        <button
+                          className="w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-[#C8813A] hover:bg-[#C8813A]/15 transition-colors cursor-pointer mt-2"
+                        >
+                          Sign In
+                        </button>
+                      </SignInButton>
+                    </Show>
+                    <Show when="signed-in">
+                      <div className="pt-2">
+                        <UserMenu />
+                      </div>
+                    </Show>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </nav>
     </header>
